@@ -6,7 +6,17 @@ import {
 import { auth } from "../../auth/firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Aside, Form, Input, Button } from "./Form.styled";
+import {
+  Container,
+  Aside,
+  Form,
+  Title,
+  Row,
+  Label,
+  Input,
+  Button,
+} from "./Form.styled";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({});
@@ -44,24 +54,37 @@ const Login = () => {
     <Container>
       <Aside />
       <Form onSubmit={login}>
-        <h3> Login </h3>
-        <Input
-          placeholder="Email..."
-          type="text"
-          onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
-          required
-        />
-        <Input
-          placeholder="Password..."
-          type="password"
-          onChange={(e) =>
-            setUserInfo({ ...userInfo, password: e.target.value })
-          }
-          required
-        />
+        <Title> Login </Title>
+        <Row>
+          <Label htmlFor="email">E-mail</Label>
+          <Input
+            placeholder="Email..."
+            type="text"
+            id="email"
+            onChange={(e) =>
+              setUserInfo({ ...userInfo, email: e.target.value })
+            }
+            required
+          />
+        </Row>
+
+        <Row>
+          <Label htmlFor="password">Password</Label>
+          <Input
+            placeholder="Password..."
+            type="password"
+            id="password"
+            onChange={(e) =>
+              setUserInfo({ ...userInfo, password: e.target.value })
+            }
+            required
+          />
+        </Row>
 
         <Button type="submit"> Login</Button>
-        <Button onClick={googleLogin}> Continue With Google</Button>
+        <Button onClick={googleLogin}>
+          <FcGoogle /> Continue With Google
+        </Button>
       </Form>
     </Container>
   );
