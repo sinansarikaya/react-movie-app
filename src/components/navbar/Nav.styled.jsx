@@ -5,7 +5,7 @@ export const Nav = styled.div`
   color: #fff;
   height: 100px;
   padding: 0.5rem 2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   ul {
     display: flex;
     justify-content: space-between;

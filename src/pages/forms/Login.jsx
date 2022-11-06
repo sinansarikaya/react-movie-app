@@ -3,9 +3,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../auth/firebase";
+import { auth } from "../../auth/firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Container, Aside, Form, Input, Button } from "./Form.styled";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({});
@@ -40,20 +41,29 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={login}>
-      <h3> Login </h3>
-      <input
-        placeholder="Email..."
-        onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
-      />
-      <input
-        placeholder="Password..."
-        onChange={(e) => setUserInfo({ ...userInfo, password: e.target.value })}
-      />
+    <Container>
+      <Aside />
+      <Form onSubmit={login}>
+        <h3> Login </h3>
+        <Input
+          placeholder="Email..."
+          type="text"
+          onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
+          required
+        />
+        <Input
+          placeholder="Password..."
+          type="password"
+          onChange={(e) =>
+            setUserInfo({ ...userInfo, password: e.target.value })
+          }
+          required
+        />
 
-      <button type="submit"> Login</button>
-      <button onClick={googleLogin}> Continue With Google</button>
-    </form>
+        <Button type="submit"> Login</Button>
+        <Button onClick={googleLogin}> Continue With Google</Button>
+      </Form>
+    </Container>
   );
 };
 

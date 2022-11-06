@@ -1,14 +1,13 @@
 import React from "react";
 import Navbar from "../components/navbar/Navbar";
 import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+import Login from "../pages/forms/Login";
+import Register from "../pages/forms/Register";
 import MovieDetail from "../pages/MovieDetail";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import PrivateRouter from "./PrivateRouter";
 import { GlobalStyles } from "../globalStyled/GlobalStyles";
-import Header from "../components/header/Header";
 
 const Router = () => {
   return (
@@ -16,7 +15,6 @@ const Router = () => {
       <GlobalStyles />
       <BrowserRouter>
         <Navbar />
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

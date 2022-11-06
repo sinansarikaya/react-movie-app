@@ -1,7 +1,12 @@
-import React from "react";
+import Header from "../components/header/Header";
 
 const MovieDetail = () => {
-  return <div>MovieDetail</div>;
+  return (
+    <div>
+      <Header />
+      MovieDetail
+    </div>
+  );
 };
 
 export default MovieDetail;
