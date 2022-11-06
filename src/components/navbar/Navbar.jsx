@@ -3,8 +3,6 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../auth/firebase";
 import { useLoginContext } from "../../context/AuthContext";
 import { LogoImg, Nav, NavAside } from "./Nav.styled";
-import logoNoText from "../../assets/logoNoText.svg";
-import Logo from "../../assets/Logo";
 import homeSvg from "../../assets/logo-no-text.png";
 const Navbar = () => {
   const navigate = useNavigate();

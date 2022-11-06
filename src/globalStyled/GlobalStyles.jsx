@@ -8,6 +8,8 @@ export const GlobalStyles = createGlobalStyle`
     }
     body {
         background-color: #C7CDD3;
+        font-family: 'Ubuntu', sans-serif;
+
     }
     a {
         text-decoration: none;
