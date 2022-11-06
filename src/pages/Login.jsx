@@ -1,4 +1,8 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "../auth/firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +24,20 @@ const Login = () => {
         console.log(error);
       });
   };
+  const googleLogin = () => {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        navigate(-1);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        console.log(error);
+      });
+  };
 
   return (
     <form onSubmit={login}>
@@ -34,6 +52,7 @@ const Login = () => {
       />
 
       <button type="submit"> Login</button>
+      <button onClick={googleLogin}> Continue With Google</button>
     </form>
   );
 };

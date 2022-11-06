@@ -18,15 +18,25 @@ const Register = () => {
         console.log(error);
       });
   };
+
   return (
     <form onSubmit={register}>
       <h3> Register User </h3>
       <input
-        placeholder="Email..."
+        placeholder="Enter your first name."
+        onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
+      />
+      <input
+        placeholder="Enter your last name."
+        onChange={(e) => setUserInfo({ ...userInfo, surname: e.target.value })}
+      />
+      <input
+        placeholder="Enter your email address."
         onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
       />
       <input
-        placeholder="Password..."
+        placeholder="Enter your email password."
+        type="password"
         onChange={(e) => setUserInfo({ ...userInfo, password: e.target.value })}
       />
       <button type="submit"> Create User</button>
