@@ -3,7 +3,7 @@ import Navbar from "../components/navbar/Navbar";
 import Home from "../pages/home/Home";
 import Login from "../pages/forms/Login";
 import Register from "../pages/forms/Register";
-import MovieDetail from "../pages/MovieDetail";
+import MovieDetail from "../pages/movieDetail/MovieDetail";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import PrivateRouter from "./PrivateRouter";
@@ -20,7 +20,7 @@ const Router = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          <Route path="/movie-detail" element={<PrivateRouter />}>
+          <Route path="/movie-detail/:id" element={<PrivateRouter />}>
             <Route path="" element={<MovieDetail />} />
           </Route>
         </Routes>

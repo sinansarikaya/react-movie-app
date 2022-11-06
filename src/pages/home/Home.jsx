@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import { Main, Card, Img, CartTitle } from "./Home.styled";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const API_KEY = "818efd22848c6c7d63381d1836bac795";
   const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(url)
@@ -13,18 +16,19 @@ const Home = () => {
       .then((data) => setMovies(data?.results));
   }, []);
 
-  console.log(movies);
-
   return (
     <div>
       <Header />
       <Main>
-        {movies?.map((movie, i) => (
-          <Card key={i}>
+        {movies?.map((movie) => (
+          <Card
+            key={movie?.id}
+            onClick={() => navigate(`movie-detail/${movie?.id}`)}
+          >
             <CartTitle>{movie?.original_title}</CartTitle>
 
             <Img
-              src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w1280${movie?.poster_path}`}
               alt={movie?.original_title}
             />
             {/* <div>IMDB: {movie?.vote_average}</div> */}

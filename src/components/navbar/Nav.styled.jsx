@@ -32,3 +32,18 @@ export const NavAside = styled.div`
     }
   }
 `;
+
+export const Button = styled.button`
+  background: none;
+  border: 0;
+  outline: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  padding: 1.3rem 1rem;
+  border-radius: 0.5rem;
+  &:hover {
+    background-color: #ef6461;
+  }
+`;

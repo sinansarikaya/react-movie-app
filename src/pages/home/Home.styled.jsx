@@ -19,6 +19,10 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid silver;
+  }
 `;
 
 export const CartTitle = styled.div`

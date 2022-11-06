@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../auth/firebase";
 import {
   Container,
@@ -11,18 +11,27 @@ import {
   Input,
   Button,
 } from "./Form.styled";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({});
 
+  const navigate = useNavigate();
+
   const register = (e) => {
     e.preventDefault();
-    const { email, password } = userInfo;
+    const { email, password, name, surname } = userInfo;
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
+
+        updateProfile(auth.currentUser, {
+          displayName: ` ${name} ${surname}`,
+        })
+          .then(() => {})
+          .catch((error) => {});
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
