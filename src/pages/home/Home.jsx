@@ -3,22 +3,24 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header";
 import { Card, CartTitle, Img, Main } from "./Home.styled";
 
+
+const API_KEY = "818efd22848c6c7d63381d1836bac795";
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
-  const API_KEY = "818efd22848c6c7d63381d1836bac795";
-  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 
   const navigate = useNavigate();
 
-  const getMovies = () => {
-    fetch(url)
+  const getMovies = (API) => {
+    fetch(API)
       .then((res) => res.json())
       .then((data) => setMovies(data?.results));
   };
 
   useEffect(() => {
-    getMovies();
-  }, [getMovies()]);
+    getMovies(FEATURED_API);
+  }, []);
 
   return (
     <div>
