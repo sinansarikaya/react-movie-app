@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import VideoSection from "../../components/videoSection/VideoSection";
 import { Aside, Container, Content, Img } from "./MovieDetail.styled";
 
 const Detail = () => {
   const [movie, setMovie] = useState([]);
+  const [videoKey, setVideoKey] = useState();
   const { id } = useParams();
-
+  
   const API_KEY = process.env.REACT_APP_thmdbKey;
   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
 
   useEffect(() => {
-    fetch(url)
+    fetch(MovieDetailBaseUrl)
       .then((res) => res.json())
       .then((data) => setMovie(data));
-  }, [url]);
+      
+    fetch(videoUrl)
+        .then((res) => res.json())
+        .then((data) => setVideoKey(data.results[0].key));
+  }, [MovieDetailBaseUrl, videoUrl]);
 
-  console.log(movie);
 
   const {
     original_title,
@@ -33,6 +39,7 @@ const Detail = () => {
           src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
           alt={original_title}
         />
+
         <Aside>
           <div className="title">{original_title}</div>
           <div className="detail">
@@ -43,7 +50,7 @@ const Detail = () => {
           </div>
         </Aside>
       </Content>
-
+      {videoKey && <VideoSection videoKey={videoKey} />}
       <Link to={-1}>Go Back</Link>
     </Container>
   );
