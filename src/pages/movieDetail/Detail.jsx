@@ -46,15 +46,18 @@ const Detail = () => {
 
         <Aside>
           <div className="title">{original_title}</div>
+          <div className="subtitle">
+            <p><span className="rate">Rate: {vote_average} </span></p>
+            <p><span className="vote">Total Vote: {vote_count}</span></p> 
+          </div>
+          {videoKey && <VideoSection videoKey={videoKey} />}
           <div className="detail">
             <div className="overview">{overview}</div>
-            {videoKey && <VideoSection videoKey={videoKey} />}
-            <div>IMDB: {vote_average}</div>
-            <div>T{vote_count}</div>
-            <div>{release_date}</div>
+            <div className="date">{release_date}</div>   
           </div>
         </Aside>
       </Content>
+      
       <Link to={-1}>Go Back</Link>
     </Container>
   );
