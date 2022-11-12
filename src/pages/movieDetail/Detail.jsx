@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import VideoSection from "../../components/videoSection/VideoSection";
-import { Aside, Container, Content, Img } from "./MovieDetail.styled";
+import { Aside, Container, Content, GoBack, Img } from "./MovieDetail.styled";
 import NoImage from "../../assets/No_image.png";
 import Footer from "../../components/footer/Footer";
 
@@ -61,7 +61,7 @@ const Detail = () => {
         </Aside>
       </Content>
       {videoKey && <VideoSection videoKey={videoKey} />}
-      <Link to={-1}>Go Back</Link>
+      <GoBack><Link to={-1}>Go Back</Link></GoBack>
     </Container>
     <Footer />
     </>
