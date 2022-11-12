@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Aside, Container, Content, Img } from "./MovieDetail.styled";
 
 const Detail = () => {
   const [movie, setMovie] = useState([]);
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const { id } = useParams(); 
 
   const API_KEY = "818efd22848c6c7d63381d1836bac795";
   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
@@ -14,7 +13,7 @@ const Detail = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMovie(data));
-  }, []);
+  }, [url]);
 
   console.log(movie);
 
@@ -45,7 +44,7 @@ const Detail = () => {
         </Aside>
       </Content>
 
-      <a onClick={() => navigate(-1)}>Go Back</a>
+      <Link to={-1}>Go Back</Link>
     </Container>
   );
 };
