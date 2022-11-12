@@ -9,7 +9,7 @@ const Detail = () => {
   const { id } = useParams();
   
   const API_KEY = process.env.REACT_APP_thmdbKey;
-  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+  const MovieDetailBaseUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
 
   useEffect(() => {
@@ -44,13 +44,13 @@ const Detail = () => {
           <div className="title">{original_title}</div>
           <div className="detail">
             <div className="overview">{overview}</div>
+            {videoKey && <VideoSection videoKey={videoKey} />}
             <div>IMDB: {vote_average}</div>
             <div>T{vote_count}</div>
             <div>{release_date}</div>
           </div>
         </Aside>
       </Content>
-      {videoKey && <VideoSection videoKey={videoKey} />}
       <Link to={-1}>Go Back</Link>
     </Container>
   );

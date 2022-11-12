@@ -15,11 +15,12 @@ export const Card = styled.div`
   height: 350px;
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-radius: 1rem;
+  border-radius: 2%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  text-align: center;
   &:hover {
     border: 1px solid silver;
   }
@@ -27,13 +28,14 @@ export const Card = styled.div`
 
 export const CartTitle = styled.div`
   width: 100%;
-  height: 15%;
+  height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #435058;
   color: #c7cdd3;
   font-size: 1.2rem;
+  font-family: 'Oswald', sans-serif;
 `;
 
 export const Img = styled.img`
