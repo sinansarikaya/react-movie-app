@@ -9,6 +9,15 @@ export const Main = styled.main`
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 1rem;
   gap: 1.5rem;
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 530px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Card = styled.div`
@@ -34,6 +43,12 @@ export const CartTitle = styled.div`
   background-color: #435058;
   color: #c7cdd3;
   font-size: 1.2rem;
+  @media (max-width: 1430px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 1220px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Img = styled.img`

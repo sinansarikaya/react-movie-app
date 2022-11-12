@@ -7,7 +7,7 @@ export const HeaderStyle = styled.header`
   background: url(${headerBg}) no-repeat;
   background-position: center;
   object-fit: cover;
-  background-size: 100% auto;
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +27,9 @@ export const Search = styled.form`
   justify-content: space-between;
   border: 2px solid #ef6461;
   overflow: hidden;
+  @media (max-width: 530px) {
+    width: 95%;
+  }
 `;
 
 export const Input = styled.input`
@@ -55,5 +58,8 @@ export const Button = styled.button`
   transition: background 0.3s ease-in-out;
   &:hover {
     background-color: #de706e;
+  }
+  @media (max-width: 275px) {
+    padding: 1rem;
   }
 `;

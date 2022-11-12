@@ -12,10 +12,23 @@ export const Nav = styled.div`
     align-items: center;
     height: 100%;
   }
+  @media (max-width: 530px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 375px) {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
 `;
 
 export const LogoImg = styled.img`
   height: 90px;
+  @media (max-width: 530px) {
+    height: 60px;
+  }
+  @media (max-width: 375px) {
+    height: 50px;
+  }
 `;
 
 export const NavAside = styled.div`
@@ -38,12 +51,18 @@ export const Button = styled.button`
   border: 0;
   outline: none;
   color: #fff;
-  font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   padding: 1.3rem 1rem;
   border-radius: 0.5rem;
   &:hover {
     background-color: #ef6461;
+  }
+  @media (max-width: 530px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 375px) {
+    font-size: 0.7rem;
+    padding: 1.3rem 0.7rem;
   }
 `;
