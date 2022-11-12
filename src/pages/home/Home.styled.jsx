@@ -21,7 +21,7 @@ export const Main = styled.main`
 `;
 
 export const Card = styled.div`
-  height: 350px;
+  height: 400px;
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 2%;
@@ -44,7 +44,7 @@ export const CartTitle = styled.div`
   background-color: #435058;
   color: #c7cdd3;
   font-size: 1.2rem;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 
   @media (max-width: 1430px) {
     font-size: 1rem;
@@ -54,8 +54,12 @@ export const CartTitle = styled.div`
   }
 `;
 
-export const Img = styled.img`
+export const ImgContainer = styled.div`
   width: 100%;
   height: 85%;
+`;
+export const Img = styled.img`
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 `;

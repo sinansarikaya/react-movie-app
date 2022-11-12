@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import VideoSection from "../../components/videoSection/VideoSection";
 import { Aside, Container, Content, Img } from "./MovieDetail.styled";
 import NoImage from "../../assets/No_image.png";
+import Footer from "../../components/footer/Footer";
 
 const Detail = () => {
   const [movie, setMovie] = useState([]);
@@ -33,30 +34,33 @@ const Detail = () => {
   } = movie;
 
   return (
-    <Container>
-      <Content>
-        <Img
-          src={
-            movie?.poster_path
-              ? `https://image.tmdb.org/t/p/w1280${poster_path}`
-              : NoImage
-          }
-          alt={movie?.original_title}
-        />
+    <>
+      <Container>
+        <Content>
+          <Img
+            src={
+              movie?.poster_path
+                ? `https://image.tmdb.org/t/p/w1280${poster_path}`
+                : NoImage
+            }
+            alt={movie?.original_title}
+          />
 
-        <Aside>
-          <div className="title">{original_title}</div>
-          <div className="detail">
-            <div className="overview">{overview}</div>
-            {videoKey && <VideoSection videoKey={videoKey} />}
-            <div>IMDB: {vote_average}</div>
-            <div>T{vote_count}</div>
-            <div>{release_date}</div>
-          </div>
-        </Aside>
-      </Content>
-      <Link to={-1}>Go Back</Link>
-    </Container>
+          <Aside>
+            <div className="title">{original_title}</div>
+            <div className="detail">
+              <div className="overview">{overview}</div>
+              {videoKey && <VideoSection videoKey={videoKey} />}
+              <div>IMDB: {vote_average}</div>
+              <div>T{vote_count}</div>
+              <div>{release_date}</div>
+            </div>
+          </Aside>
+        </Content>
+        <Link to={-1}>Go Back</Link>
+      </Container>
+      <Footer />
+    </>
   );
 };
 

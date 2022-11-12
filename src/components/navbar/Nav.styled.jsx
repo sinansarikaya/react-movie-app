@@ -55,6 +55,7 @@ export const Button = styled.button`
   transition: background-color 0.3s ease-in-out;
   padding: 1.3rem 1rem;
   border-radius: 0.5rem;
+  font-size: 1.2rem;
   &:hover {
     background-color: #ef6461;
   }
