@@ -2,17 +2,22 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   width: 80%;
-  height: calc(100vh - 100px - 4rem);
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Content = styled.div`
   width: 100%;
   display: flex;
   gap: 2rem;
+  @media(max-width: 950px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Img = styled.img`
@@ -72,3 +77,21 @@ export const Aside = styled.div`
       }
     }
 `;
+
+export const GoBack = styled.span`
+  padding: 1rem 2rem;
+  background-color: hsl(0, 55%, 50%);
+  margin: 2rem auto 0;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: all 1s; 
+  color: #c7cdd3; 
+  cursor: pointer;
+  a {
+    color: #c7cdd3; 
+  }
+  &:hover {
+    transform: scale(1.1);
+    transition: all 1s;
+  }
+`
