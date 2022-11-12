@@ -48,14 +48,16 @@ export const Aside = styled.div`
 
   .detail {
     height: 100%;
-    padding: 0rem 2.5rem;
+    padding: 0rem 2rem;
     display: flex;
     flex-direction: column;
     line-height: 2rem; 
     color: #343a40;
-    .overview {
-      margin-bottom: auto;
-    }
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      color: hsl(0, 45%, 50%);
+      margin-bottom: 18px; 
+    } 
   }
 
   .subtitle { 

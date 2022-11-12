@@ -6,9 +6,9 @@ const VideoSection = ({ videoKey }) => {
 
       <iframe     src={`https://www.youtube.com/embed/${videoKey}?autoplay=0&mute=0`}
         title="YouTube video player"
-        frameborder="0"
+        Frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;"
-        allowfullscreen />
+        AllowFullscreen />
 
     </VideoStyle>
   );
