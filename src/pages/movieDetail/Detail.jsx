@@ -4,9 +4,9 @@ import { Aside, Container, Content, Img } from "./MovieDetail.styled";
 
 const Detail = () => {
   const [movie, setMovie] = useState([]);
-  const { id } = useParams(); 
+  const { id } = useParams();
 
-  const API_KEY = "818efd22848c6c7d63381d1836bac795";
+  const API_KEY = process.env.REACT_APP_thmdbKey;
   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
 
   useEffect(() => {

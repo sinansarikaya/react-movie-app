@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header";
 import { Card, CartTitle, Img, Main } from "./Home.styled";
 
-
-const API_KEY = "818efd22848c6c7d63381d1836bac795";
+const API_KEY = process.env.REACT_APP_thmdbKey;
 const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 
 const Home = () => {
@@ -24,7 +23,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      <Header API_KEY={API_KEY} setMovies={setMovies} />
       <Main>
         {movies?.map((movie) => (
           <Card
