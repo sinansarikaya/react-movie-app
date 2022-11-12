@@ -48,13 +48,13 @@ const Detail = () => {
           <div className="title">{original_title}</div>
           <div className="detail">
             <div className="overview">{overview}</div>
+            {videoKey && <VideoSection videoKey={videoKey} />}
             <div>IMDB: {vote_average}</div>
             <div>T{vote_count}</div>
             <div>{release_date}</div>
           </div>
         </Aside>
       </Content>
-      {videoKey && <VideoSection videoKey={videoKey} />}
       <Link to={-1}>Go Back</Link>
     </Container>
   );
