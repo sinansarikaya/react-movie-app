@@ -10,11 +10,15 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const getMovies = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMovies(data?.results));
-  }, []);
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, [getMovies()]);
 
   return (
     <div>

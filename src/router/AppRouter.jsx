@@ -1,11 +1,5 @@
 import { useContext } from "react";
-import {
-  BrowserRouter,
-  Navigate,
-  Outlet,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import { AuthContext } from "../context/AuthContextProvider";
 import { GlobalStyles } from "../globalStyled/GlobalStyles";

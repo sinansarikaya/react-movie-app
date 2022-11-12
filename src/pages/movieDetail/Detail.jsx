@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Container } from "./MovieDetail.styled";
+import { Aside, Container, Content, Img } from "./MovieDetail.styled";
 
 const Detail = () => {
   const [movie, setMovie] = useState([]);
@@ -29,15 +29,22 @@ const Detail = () => {
 
   return (
     <Container>
-      <div>{original_title}</div>
-      <img
-        src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
-        alt={original_title}
-      />
-      <div>{overview}</div>
-      <div>{vote_average}</div>
-      <div>{vote_count}</div>
-      <div>{release_date}</div>
+      <Content>
+        <Img
+          src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
+          alt={original_title}
+        />
+        <Aside>
+          <div className="title">{original_title}</div>
+          <div className="detail">
+            <div className="overview">{overview}</div>
+            <div>IMDB: {vote_average}</div>
+            <div>T{vote_count}</div>
+            <div>{release_date}</div>
+          </div>
+        </Aside>
+      </Content>
+
       <a onClick={() => navigate(-1)}>Go Back</a>
     </Container>
   );
