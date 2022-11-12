@@ -53,14 +53,14 @@ const Detail = () => {
             <p><span className="rate">Rate: {vote_average} </span></p>
             <p><span className="vote">Total Vote: {vote_count}</span></p> 
           </div>
-          {videoKey && <VideoSection videoKey={videoKey} />}
           <div className="detail">
+            <h1 className="card-title">Overview</h1>
             <div className="overview">{overview}</div>
             <div className="date">{release_date}</div>   
           </div>
         </Aside>
       </Content>
-      
+      {videoKey && <VideoSection videoKey={videoKey} />}
       <Link to={-1}>Go Back</Link>
     </Container>
     <Footer />
