@@ -7,10 +7,13 @@ export const HeaderStyle = styled.header`
   background: url(${headerBg}) no-repeat;
   background-position: center;
   object-fit: cover;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 530px) {
+    background-size: 100% 100%;
+  }
 `;
 
 export const Search = styled.form`

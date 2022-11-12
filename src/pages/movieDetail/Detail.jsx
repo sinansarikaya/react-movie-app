@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import VideoSection from "../../components/videoSection/VideoSection";
 import { Aside, Container, Content, Img } from "./MovieDetail.styled";
 import NoImage from "../../assets/No_image.png";
+import Footer from "../../components/footer/Footer";
 
 const Detail = () => {
   const [movie, setMovie] = useState([]);
@@ -33,6 +34,8 @@ const Detail = () => {
   } = movie;
 
   return (
+
+  <>
     <Container>
       <Content>
         <Img
@@ -60,6 +63,8 @@ const Detail = () => {
       
       <Link to={-1}>Go Back</Link>
     </Container>
+    <Footer />
+    </>
   );
 };
 

@@ -13,6 +13,9 @@ export const Aside = styled.aside`
   background: url(${formBg}) no-repeat;
   background-position: center;
   object-fit: cover;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export const Form = styled.form`
@@ -24,10 +27,19 @@ export const Form = styled.form`
   flex-direction: column;
   padding: 2rem;
   gap: 2rem;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+  @media (max-width: 450px) {
+    padding: 0;
+  }
 `;
 
 export const Title = styled.h1`
   color: #435058;
+  @media (max-width: 450px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Row = styled.div`
