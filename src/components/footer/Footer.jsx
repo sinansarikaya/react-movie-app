@@ -27,9 +27,18 @@ const Footer = () => {
       </div>
       <Line />
       <Social>
-        <BsGithub />
-        <AiOutlineInstagram />
-        <FaLinkedinIn />
+        <a
+          href="https://github.com/sinansarikaya/react-movie-app"
+          target="_blank"
+        >
+          <BsGithub />
+        </a>
+        <a href="https://www.instagram.com/sinan.sarykaya/" target="_blank">
+          <AiOutlineInstagram />
+        </a>
+        <a href="https://www.linkedin.com/in/sinansarykaya/" target="_blank">
+          <FaLinkedinIn />
+        </a>
       </Social>
     </FooterContainer>
   );
