@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  height: 400px;
+  height: 450px;
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 2%;
@@ -14,7 +14,6 @@ export const Card = styled.div`
     border: 1px solid silver;
   }
 `;
-
 export const CartTitle = styled.div`
   width: 100%;
   height: 20%;
@@ -33,7 +32,6 @@ export const CartTitle = styled.div`
     font-size: 0.8rem;
   }
 `;
-
 export const ImgContainer = styled.div`
   width: 100%;
   height: 85%;
@@ -42,4 +40,26 @@ export const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+`;
+export const VoteContainer = styled.div`
+  height: 100px;
+  font-weight: 700;
+  color: #c7cdd3;
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .red {
+    background-color: #f05454;
+  }
+  .green {
+    background-color: #198754;
+  }
+  .orange {
+    background-color: #ffc107;
+    color: #435058;
+  }
 `;
