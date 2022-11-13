@@ -1,9 +1,25 @@
-import { Card, CartTitle, Img, ImgContainer } from "./MovieCard.styled";
+import {
+  Card,
+  CartTitle,
+  Img,
+  ImgContainer,
+  VoteContainer,
+} from "./MovieCard.styled";
 import { useNavigate } from "react-router-dom";
 import NoImage from "../../assets/No_image.png";
 
 const MovieCard = ({ movies }) => {
   const navigate = useNavigate();
+
+  const getVote = (vote) => {
+    if (vote >= 8) {
+      return "green";
+    } else if (vote >= 6) {
+      return "orange";
+    } else {
+      return "red";
+    }
+  };
   return (
     <>
       {movies?.map((movie) => (
@@ -21,6 +37,11 @@ const MovieCard = ({ movies }) => {
           </ImgContainer>
 
           {/* <div>IMDB: {movie?.vote_average}</div> */}
+          <VoteContainer>
+            <div className={`flex ${getVote(movie?.vote_average.toFixed(1))}`}>
+              IMDB: {movie?.vote_average.toFixed(1)}
+            </div>
+          </VoteContainer>
         </Card>
       ))}
     </>
