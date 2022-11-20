@@ -10,6 +10,11 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
 } from "firebase/auth";
+import {
+  toastErrorNotify,
+  toastSuccessNotify,
+  toastWarnNotify,
+} from "../helpers/ToastNotify";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -32,8 +37,9 @@ export const createUser = async (name, surname, email, password, navigate) => {
       displayName: `${name} ${surname}`,
     });
     navigate("/");
+    toastSuccessNotify("Registered successfully!");
   } catch (error) {
-    console.log(error.message);
+    toastErrorNotify(error.message);
   }
 };
 
@@ -42,8 +48,9 @@ export const loginWithEmail = async (email, password, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
     navigate("/");
+    toastSuccessNotify("Logged in successfully!");
   } catch (error) {
-    console.log(error.message);
+    toastErrorNotify(error.message);
   }
 };
 
@@ -55,16 +62,17 @@ export const loginWithGoogle = async (navigate) => {
     .then((result) => {
       console.log(result);
       navigate("/");
+      toastSuccessNotify("Logged in successfully!");
     })
     .catch((error) => {
-      console.log(error.message);
+      toastErrorNotify(error.message);
     });
 };
 
 // Logout Function
 export const logOut = (navigate) => {
   signOut(auth);
-  // setCurrentUser(false)
+  toastSuccessNotify("Logged out successfully!");
   navigate("/login");
 };
 
@@ -78,11 +86,9 @@ export const userObserver = (setCurrentUser) => {
         "currentUser",
         JSON.stringify({ email, displayName, photoURL })
       );
-      console.log("giris yapili");
     } else {
       localStorage.removeItem("currentUser");
       setCurrentUser(false);
-      console.log("Cikis yapili");
     }
   });
 };
@@ -93,8 +99,9 @@ export const passwordReset = (navigate, email) => {
   sendPasswordResetEmail(auth, email)
     .then(() => {
       navigate("/login");
+      toastWarnNotify("Please check your mail box!");
     })
     .catch((error) => {
-      console.log(error.message);
+      toastErrorNotify(error.message);
     });
 };
