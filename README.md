@@ -11,7 +11,8 @@ Responsive movie app made using React
 - Firebase
 - React Router Dom
 - React-icons
-- Styled COmponents
+- Styled Components
+- React Toastify
 
 ### Installation Options
 
