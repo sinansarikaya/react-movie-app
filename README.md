@@ -47,3 +47,5 @@ $ yarn start
 ### Demo
 
 #### [View Demo](https://react-movie-app-bice.vercel.app/)
+
+![Demo](./src/assets/demo.jpeg)
