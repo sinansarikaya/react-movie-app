@@ -13,6 +13,7 @@ Responsive movie app made using React
 - React-icons
 - Styled Components
 - React Toastify
+- React Context
 
 ### Installation Options
 
