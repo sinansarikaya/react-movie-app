@@ -11,9 +11,9 @@ const Footer = () => {
         <svg
           stroke="currentColor"
           fill="#e25454"
-          stroke-width="0"
+          strokeWidth="0"
           viewBox="0 0 1024 1024"
-          class="footer_heart__SGb3w"
+          className="footer_heart__SGb3w"
           height="1.2em"
           width="1.2em"
           xmlns="http://www.w3.org/2000/svg"
