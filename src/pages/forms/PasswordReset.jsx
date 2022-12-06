@@ -33,7 +33,7 @@ const PasswordReset = () => {
             type="text"
             id="email"
             onChange={(e) => setReset(e.target.value)}
-            // required
+            required
           />
         </Row>
         <Button type="submit">Submit</Button>

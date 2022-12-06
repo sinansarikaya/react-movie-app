@@ -21,7 +21,7 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     const { name, surname, email, password } = register;
-    createUser(name, surname, email, password);
+    createUser(name, surname, email, password, navigate);
   };
 
   return (
