@@ -13,7 +13,6 @@ const Footer = () => {
           fill="#e25454"
           strokeWidth="0"
           viewBox="0 0 1024 1024"
-          className="footer_heart__SGb3w"
           height="1.2em"
           width="1.2em"
           xmlns="http://www.w3.org/2000/svg"
