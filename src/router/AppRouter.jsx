@@ -1,5 +1,11 @@
 import { useContext } from "react";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import { AuthContext } from "../context/AuthContextProvider";
 import { GlobalStyles } from "../globalStyled/GlobalStyles";
@@ -15,7 +21,7 @@ const AppRouter = () => {
   const LoginRouter = () => {
     const { currentUser } = useContext(AuthContext);
 
-    return !currentUser && <Outlet />;
+    return !currentUser ? <Outlet /> : <Navigate to="/" />;
   };
   return (
     <BrowserRouter>
