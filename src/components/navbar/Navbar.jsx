@@ -7,6 +7,8 @@ import { logOut } from "../../auth/firebase";
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
+  const items = JSON.parse(localStorage.getItem("currentUser"));
+
   const navigate = useNavigate();
 
   return (
@@ -18,22 +20,24 @@ const Navbar = () => {
           </Link>
         </li>
         <NavAside>
-          {!currentUser ? (
+          {currentUser || items ? (
+            <>
+              <li>
+                <span className="displayName">
+                  {currentUser?.displayName || items?.displayName}
+                </span>
+              </li>
+              <li>
+                <Button onClick={() => logOut(navigate)}>Logout</Button>
+              </li>
+            </>
+          ) : (
             <>
               <li>
                 <NavLink to="/login">Login</NavLink>
               </li>
               <li>
                 <NavLink to="/register">Register</NavLink>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <span className="displayName">{currentUser?.displayName}</span>
-              </li>
-              <li>
-                <Button onClick={() => logOut(navigate)}>Logout</Button>
               </li>
             </>
           )}

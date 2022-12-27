@@ -36,6 +36,15 @@ export const createUser = async (name, surname, email, password, navigate) => {
     await updateProfile(auth.currentUser, {
       displayName: `${name} ${surname}`,
     });
+    //
+    if (auth.currentUser) {
+      const { email, displayName, photoURL } = auth.currentUser;
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify({ email, displayName, photoURL })
+      );
+    }
+
     navigate("/");
     toastSuccessNotify("Registered successfully!");
   } catch (error) {
@@ -59,7 +68,7 @@ export const loginWithGoogle = async (navigate) => {
   const provider = new GoogleAuthProvider();
 
   signInWithPopup(auth, provider)
-    .then((result) => {
+    .then(() => {
       navigate("/");
       toastSuccessNotify("Logged in successfully!");
     })
